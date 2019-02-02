@@ -116,7 +116,7 @@
     width: 70%;
 }
 .bar {
-    height: 24px;
+    height: 30px;
     border-radius: 10px;
     color: white;
     font-weight: bold;
