@@ -5,7 +5,7 @@
             <img :src="row.icon" alt="icon not found" class="icon" />
         </div>
         <div class="progress">
-            <div class="bar" :style="getStyles(row)"></div>
+            <div class="bar" :style="getStyles(row)">{{getCount(row)}}</div>
         </div>
       </div>
   </div>
@@ -81,6 +81,9 @@
                 else
                 style += 'background-image: linear-gradient('+ item.color.join(', ') +')';
                 return style
+            },
+            getCount(item) {
+                return item.count > 999 ? (item.count / 1000).toFixed(1) + 'k' : item.count;
             }
         }
     }
@@ -109,5 +112,10 @@
 .bar {
     height: 24px;
     border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
 }
 </style>
