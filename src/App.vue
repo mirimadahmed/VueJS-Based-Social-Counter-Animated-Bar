@@ -1,17 +1,35 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Followers :data="demo_data" duration="1000" :animate="true"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Followers from './components/Followers.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Followers
+  },
+  data() {
+    return {
+      demo_data: [
+        {
+          platform: 'youtube',
+          followers: 110245,
+        },
+        {
+          platform: 'instagram',
+          followers: 455,
+        },
+        {
+          platform: 'twitter',
+          followers: 72400,
+        },
+      ]
+    }
   }
 }
 </script>
