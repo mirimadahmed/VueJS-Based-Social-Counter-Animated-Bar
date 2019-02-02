@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <div>
+      <div v-for="(row, index) in rows" :key="index">
+          {{ row }}
+      </div>
+  </div>
 </template>
 
 <script>
@@ -43,6 +47,9 @@
             }
         },
         computed: {
+            sorted() {
+                return this.data.sort((a, b) => b.followers > a.followers);
+            },
             rows() {
                 return this.data.map((item, index) => {
                     let _icon = this.iconMap[item.platform];
@@ -51,9 +58,7 @@
                         icon: _icon.icon,
                         color: _icon.color,
                         count: item.followers,
-                        duration,
-                        gradient: item.platform === 'instagram',
-                        animation
+                        gradient: item.platform === 'instagram'
                     };
 
                     if (index === 0) {
