@@ -29,6 +29,7 @@
         },
         data() {
             return {
+                minWidth: 10,
                 iconMap: {
                     instagram: {
                         icon: require('./assets/instagram.png'),
@@ -75,11 +76,16 @@
         },
         methods: {
             getStyles(item) {
-                let style = 'width:' + item.percent + '%;'
-                if(!item.gradient)
-                style += 'background-color:'+item.color;
+                let style = 'width:'
+                if(item.percent < this.minWidth)
+                    style += this.minWidth
                 else
-                style += 'background-image: linear-gradient('+ item.color.join(', ') +')';
+                    style += item.percent
+                style += '%;'
+                if(!item.gradient)
+                    style += 'background-color:'+item.color;
+                else
+                    style += 'background-image: linear-gradient('+ item.color.join(', ') +')';
                 return style
             },
             getCount(item) {
