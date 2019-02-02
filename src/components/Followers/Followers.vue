@@ -1,7 +1,12 @@
 <template>
-  <div>
-      <div v-for="(row, index) in rows" :key="index">
-          <img :src="row.icon" alt="icon not found">{{ row }}
+  <div class="followers">
+      <div v-for="(row, index) in rows" :key="index" class="follower-item">
+        <div class="item">
+            <img :src="row.icon" alt="icon not found" class="icon" />
+        </div>
+        <div class="progress">
+            <div class="bar" style="height:24px;background-color:green;" :style="'width:'+row.percent+'%'"></div>
+        </div>
       </div>
   </div>
 </template>
@@ -47,11 +52,9 @@
             }
         },
         computed: {
-            sorted() {
-                return this.data.sort((a, b) => b.followers > a.followers);
-            },
             rows() {
-                return this.data.map((item, index) => {
+                let sorted = this.data.sort((a, b) => b.followers - a.followers);
+                return sorted.map((item, index) => {
                     let _icon = this.iconMap[item.platform];
 
                     let rowData = {
@@ -62,9 +65,9 @@
                     };
 
                     if (index === 0) {
-                        rowData.percent = 1;
+                        rowData.percent = 100;
                     } else {
-                        rowData.percent = (item.followers * 100) / this.sorted[0].followers / 100;
+                        rowData.percent = (item.followers * 100) / sorted[0].followers;
                     }
                     return rowData;
                     });
@@ -74,4 +77,23 @@
 </script>
 
 <style scoped>
+.followers{
+    padding: 20px 100px 20px 100px;
+}
+.follower-item{
+    height: 24px;
+    margin-bottom:50px;
+}
+.icon{
+    height: 40px;
+    width: 40px;
+}
+.item{
+    float: left;
+    width: 10%;
+}
+.progress {
+    float: right;
+    width: 70%;
+}
 </style>
