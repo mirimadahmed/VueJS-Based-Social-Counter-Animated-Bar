@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Followers Component</h1>
-    <Followers :data="demo_data" duration="1000" :animate="true"/>
+    <Followers :data="demo_data" :duration="duration" :animate="true"/>
   </div>
 </template>
 
@@ -28,7 +28,8 @@ export default {
           platform: 'twitter',
           followers: 72400,
         },
-      ]
+      ],
+      duration: 1000
     }
   }
 }

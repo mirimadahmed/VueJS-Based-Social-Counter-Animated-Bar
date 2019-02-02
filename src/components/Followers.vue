@@ -10,7 +10,7 @@
     export default {
         props: {
             data: {
-                type: Object,
+                type: Array,
                 required: true,
             },
             duration: {
@@ -64,7 +64,7 @@
                     if (index === 0) {
                         rowData.percent = 1;
                     } else {
-                        rowData.percent = (item.followers * 100) / sorted[0].followers / 100;
+                        rowData.percent = (item.followers * 100) / this.sorted[0].followers / 100;
                     }
                     return rowData;
                     });
