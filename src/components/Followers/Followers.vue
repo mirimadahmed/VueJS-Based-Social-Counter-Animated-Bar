@@ -5,7 +5,7 @@
             <img :src="row.icon" alt="icon not found" class="icon" />
         </div>
         <div class="progress">
-            <div class="bar" style="height:24px;background-color:green;" :style="'width:'+row.percent+'%'"></div>
+            <div class="bar" style="height:24px;background-color:green;" :style="getStyles(row)"></div>
         </div>
       </div>
   </div>
@@ -71,6 +71,16 @@
                     }
                     return rowData;
                     });
+            }
+        },
+        methods: {
+            getStyles(item) {
+                let style = 'width:' + item.percent + '%;'
+                if(!item.gradient)
+                style += 'background-color:'+item.color;
+                else
+                style += 'background-image: linear-gradient('+ item.color.join(', ') +')';
+                return style
             }
         }
     }
