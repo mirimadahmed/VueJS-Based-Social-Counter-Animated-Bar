@@ -1,7 +1,7 @@
 <template>
   <div>
       <div v-for="(row, index) in rows" :key="index">
-          {{ row }}
+          <img :src="row.icon" alt="icon not found">{{ row }}
       </div>
   </div>
 </template>
@@ -26,7 +26,7 @@
             return {
                 iconMap: {
                     instagram: {
-                        icon: './assets/instagram.png',
+                        icon: require('./assets/instagram.png'),
                         color: [
                             '#833ab4',
                             '#c13584',
@@ -37,12 +37,12 @@
                             '#ffdc80',
                         ],
                     },
-                    medium: { icon: './assets/medium.png', color: '#00ab6c' },
-                    pinterest: { icon: './assets/pinterest.png', color: '#bd081c' },
-                    spotify: { icon: './assets/spotify.png', color: '#1db954' },
-                    twitch: { icon: './assets/twitch.png', color: '#6441a5' },
-                    twitter: { icon: './assets/twitter.png', color: '#1da1f2' },
-                    youtube: { icon: './assets/youtube.png', color: '#ff0000' },
+                    medium: { icon: require('./assets/medium.png'), color: '#00ab6c' },
+                    pinterest: { icon: require('./assets/pinterest.png'), color: '#bd081c' },
+                    spotify: { icon: require('./assets/spotify.png'), color: '#1db954' },
+                    twitch: { icon: require('./assets/twitch.png'), color: '#6441a5' },
+                    twitter: { icon: require('./assets/twitter.png'), color: '#1da1f2' },
+                    youtube: { icon: require('./assets/youtube.png'), color: '#ff0000' },
                 }
             }
         },

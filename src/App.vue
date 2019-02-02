@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Followers from './components/Followers.vue'
+import Followers from './components/Followers/Followers.vue'
 
 export default {
   name: 'app',
