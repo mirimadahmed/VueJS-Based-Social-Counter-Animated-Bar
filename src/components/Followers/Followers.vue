@@ -5,7 +5,7 @@
             <img :src="row.icon" alt="icon not found" class="icon" />
         </div>
         <div class="progress">
-            <div class="bar" :style="getStyles(row)"><span>{{getCount(row)}}</span></div>
+            <div class="bar" :style="getStyles(row)">{{getCount(row)}}</div>
         </div>
       </div>
   </div>
@@ -121,7 +121,7 @@
     color: white;
     font-weight: bold;
     font-size: 12px;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
+
 </style>
