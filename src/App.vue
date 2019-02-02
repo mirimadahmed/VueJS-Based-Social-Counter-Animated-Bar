@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <h1>Followers Component</h1>
     <Followers :data="demo_data" duration="1000" :animate="true"/>
   </div>
 </template>
