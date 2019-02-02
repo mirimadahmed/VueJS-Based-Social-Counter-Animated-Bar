@@ -4,15 +4,16 @@
         <div class="item">
             <img :src="row.icon" alt="icon not found" class="icon" />
         </div>
-        <div class="progress">
-            <div class="bar" :style="getStyles(row)">{{getCount(row)}}</div>
-        </div>
+        <row :row="row" :animate="animate" :duration="duration" />
       </div>
   </div>
 </template>
-
 <script>
+    import Row from './Row.vue';
     export default {
+        components:{
+            Row,
+        },
         props: {
             data: {
                 type: Array,
@@ -29,7 +30,6 @@
         },
         data() {
             return {
-                minWidth: 10,
                 iconMap: {
                     instagram: {
                         icon: require('./assets/instagram.png'),
@@ -75,22 +75,7 @@
             }
         },
         methods: {
-            getStyles(item) {
-                let style = 'width:'
-                if(item.percent < this.minWidth)
-                    style += this.minWidth
-                else
-                    style += item.percent
-                style += '%;'
-                if(!item.gradient)
-                    style += 'background-color:'+item.color;
-                else
-                    style += 'background-image: linear-gradient('+ item.color.join(', ') +')';
-                return style
-            },
-            getCount(item) {
-                return item.count > 999 ? (item.count / 1000).toFixed(1) + 'k' : item.count;
-            }
+            
         }
     }
 </script>
@@ -111,17 +96,4 @@
     float: left;
     width: 10%;
 }
-.progress {
-    float: right;
-    width: 70%;
-}
-.bar {
-    height: 30px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-}
-
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Followers Component</h1>
-    <Followers :data="demo_data" :duration="duration" :animate="true"/>
+    <Followers :data="demo_data" :duration="duration" :animate="animate"/>
+    <br><br><br>
+    <input type="button" @click="animate = true" value="Run Animation">
   </div>
 </template>
 
@@ -15,6 +17,7 @@ export default {
   },
   data() {
     return {
+      animate: false,
       demo_data: [
         {
           platform: 'youtube',
@@ -40,5 +43,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 </style>
