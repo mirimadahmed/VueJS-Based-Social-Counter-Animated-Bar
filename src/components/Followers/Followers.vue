@@ -5,7 +5,7 @@
             <img :src="row.icon" alt="icon not found" class="icon" />
         </div>
         <div class="progress">
-            <div class="bar" style="height:24px;background-color:green;" :style="getStyles(row)"></div>
+            <div class="bar" :style="getStyles(row)"></div>
         </div>
       </div>
   </div>
@@ -105,5 +105,9 @@
 .progress {
     float: right;
     width: 70%;
+}
+.bar {
+    height: 24px;
+    border-radius: 10px;
 }
 </style>
