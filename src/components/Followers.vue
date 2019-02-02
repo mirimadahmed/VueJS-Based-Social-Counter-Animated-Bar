@@ -41,6 +41,29 @@
                     youtube: { icon: './assets/youtube.png', color: '#ff0000' },
                 }
             }
+        },
+        computed: {
+            rows() {
+                return this.data.map((item, index) => {
+                    let _icon = this.iconMap[item.platform];
+
+                    let rowData = {
+                        icon: _icon.icon,
+                        color: _icon.color,
+                        count: item.followers,
+                        duration,
+                        gradient: item.platform === 'instagram',
+                        animation
+                    };
+
+                    if (index === 0) {
+                        rowData.percent = 1;
+                    } else {
+                        rowData.percent = (item.followers * 100) / sorted[0].followers / 100;
+                    }
+                    return rowData;
+                    });
+            }
         }
     }
 </script>
