@@ -57,7 +57,8 @@
             }
 
             new TWEEN.Tween({ tweeningValue: startValue })
-                .to({ tweeningValue: endValue }, 500)
+                .to({ tweeningValue: endValue }, this.duration)
+                .easing(TWEEN.Easing.Bounce.Out)
                 .onUpdate(function (object) {
                 vm.tweeningValue = object.tweeningValue.toFixed(0)
                 })
