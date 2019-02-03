@@ -83,5 +83,6 @@
     font-weight: bold;
     font-size: 12px;
     text-align: center;
+    line-height: 30px;
 }
 </style>
