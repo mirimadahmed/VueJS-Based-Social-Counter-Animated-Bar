@@ -1,4 +1,7 @@
-# followers
+# vuejs-user-avatar-with-spinning-social-icons
+A customisable vue js based Social Counter Bar with animated progress. You can customise the colors and fill speed.
+
+![](followers.gif)
 
 ## Project setup
 ```
